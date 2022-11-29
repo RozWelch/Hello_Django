@@ -1,10 +1,28 @@
 from django.test import TestCase
+from .models import Item
 
 # Create your tests here.
 
 
-class TestDjango(TestCase):
+class TestViews(TestCase):
 
-    def test_this_thing_works(self):
-        self.assertEqual(1, 1)
+    def test_get_todo_list(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'todo/todo_list.html')
+        
+    def test_get_todo_list(self):
+        response = self.client.get('/add')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'todo/add_item.html')
 
+    def test_get_todo_list(self):
+        response = self.client.get('/edit/99')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'todo/edit_item.html')
+
+    def test_get_todo_list(self):
+
+    def test_get_todo_list(self):
+
+    def test_get_todo_list(self):
